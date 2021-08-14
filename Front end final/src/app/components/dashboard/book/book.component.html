@@ -1,0 +1,106 @@
+<div>
+    <div class="input-group mb-3">
+        <div class="input-group-append">
+        </div>
+        <div class="input-group-append">
+        </div>
+        <div class="input-group-append">
+            <button class="btn btn-sm btn-success search" type="button" routerLink="add">Add new property</button>
+        </div>
+    </div>
+</div>
+<div>
+    <div>
+    </div>
+    <div>
+        <div class="card" style="width: 18rem;" *ngFor="let property of propertyList;">
+            <img class="card-img-top" src="https://pbs.twimg.com/profile_images/1018057087895703552/HKxz8Qr9.jpg"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Dream Home</h5>
+                <p class="card-text col"><span>area </span><span class="col">: {{property.area}}</span></p>
+                <p class="card-text col"><span>price </span><span class="col">{{property.price}}</span></p>
+                <p class="card-text col"><span>avalialbe </span><span class="col">{{property.status}}</span></p>
+                <a href="#" class="btn btn-primary">more details</a>
+            </div>
+        </div>
+    </div>
+    <!-- <table class="table table-sm table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Author</th>
+                <th scope="col">Issued</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="bookList.length > 0">
+            <tr *ngFor="let book of bookList;">
+                <th scope="row">{{book._id}}</th>
+                <td>{{book.name}}</td>
+                <td>{{book.price}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.status?'Yes':'No'}}</td>
+                <td>
+                    <button class="btn btn-sm btn-dark" title="Edit book details" style="cursor: pointer;"
+                        routerLink="add/{{book._id}}" [disabled]="book.status">Edit</button> &nbsp;
+                    <button title="Delete book details" class="btn btn-sm btn-danger" style="cursor: pointer;"
+                        (click)="deleteBook(book._id)" [disabled]="book.status">Delete</button>&nbsp;
+                    <button *ngIf="!book.status" title="Delete book details" class="btn btn-sm btn-success"
+                        style="cursor: pointer;" (click)="show(book._id,book.name)">issue</button>
+                </td>
+            </tr>
+        <tbody *ngIf="bookList.length==0">
+            <tr style="text-align: center;">
+                <td colspan="5">No record found</td>
+            </tr>
+        </tbody>
+    </table> -->
+</div>
+
+<div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Issue Book</h4>
+                <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" style="padding: 2% 8%;">
+                <div>
+                    <div class="form-group row">
+                        <label for="selectedBookId" class="col-sm-4">Book Id</label>
+                        <input type="email" class="form-control col-sm-8" id="selectedBookId" readonly
+                            [ngModel]="selectedBookId">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="selectedBookName" class="col-sm-4">Book Name</label>
+                    <input type="email" class="form-control col-sm-8" id="selectedBookName" readonly
+                        [ngModel]="selectedBookName">
+                </div>
+                <div class="form-group row">
+                    <label for="selectedEmailId" class="col-sm-4">Email address</label>
+                    <input type="email" class="form-control col-sm-8" id="selectedEmailId"
+                        placeholder="name@example.com" [(ngModel)]="selectedEmailId">
+                </div>
+                <div>
+                    <p style="color: red;">{{this.issueErrorMessage}}</p>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-success" data-dismiss="modal" (click)="submit()">submit</button> -->
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hide()">Close</button>
+            </div>
+
+
+        </div>
+    </div>
+</div>

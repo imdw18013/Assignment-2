@@ -1,0 +1,22 @@
+<div style="padding: 5%;">
+    <div>
+        <h4>Avalialbe Property in system</h4>
+    </div>
+    <br>
+    <div *ngIf="propertyList.length > 0">
+        <div class="card" style="width: 18rem;" *ngFor="let property of propertyList;">
+            <img class="card-img-top" src="https://pbs.twimg.com/profile_images/1018057087895703552/HKxz8Qr9.jpg"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Dream Home</h5>
+                <p class="card-text col"><span>area </span><span class="col">: {{property.area}}</span></p>
+                <p class="card-text col"><span>price </span><span class="col">{{property.price}}</span></p>
+                <p class="card-text col"><span>avalialbe </span><span class="col">{{property.status}}</span></p>
+                <a href="/contact" class="btn btn-primary">more details</a>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="propertyList.length == 0">
+        <h4>No property found</h4>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div id="login">
+    <h2>Welcome to admin panel</h2>
+    <div class="formbody">
+        <form onsubmit="login();return false;">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="emailId" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">login</button>
+            <div>{{error}}</div>
+        </form>
+    </div>
+    
+</div>
+<script>
+    function login(){
+        debugger;
+        var loginId = document.querySelector("#emailId");
+        var password = document.querySelector("#password");
+
+        if(validateLogin(login.value, password.value)){
+            error
+        }
+    }
+
+    function validateLogin(user_id, password){
+        console.log("user id :", user_id);
+        console.log("password :",password)
+        return false
+
+    }
+</script>
